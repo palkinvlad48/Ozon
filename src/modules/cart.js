@@ -6,8 +6,8 @@ const cart = () => {
   const cartModal = document.querySelector('.cart')
   const cartCloseBtn = cartModal.querySelector('.cart-close')
   const cartTotal = cartModal.querySelector('.cart-total > span')
-  const goodsWrapper = document.querySelector('.goods') 
-  const cartWrapper = document.querySelector('.navbar-wrapper')
+  const goodsWrapper = document.querySelector('.goods')
+  const cartWrapper = document.querySelector('.cart-wrapper')
   const cartSendBtn = document.querySelector('.cart-confirm')
   //console.log('cartTotal', cartTotal)
 
@@ -37,7 +37,7 @@ const cart = () => {
       const card = target.closest('.card')
       const key = card.dataset.key
       const goods = JSON.parse(localStorage.getItem('goods'))
-      console.log('goods:', card)
+      //console.log('goods:', card)
       const cart = localStorage.getItem('cart') ?
         JSON.parse(localStorage.getItem('cart')) : []
       console.log('cart:', cart)
@@ -46,7 +46,6 @@ const cart = () => {
       })
       cart.push(goodItem)
       localStorage.setItem('cart', JSON.stringify(cart))
-
     }
   })
 
@@ -76,12 +75,12 @@ const cart = () => {
       JSON.parse(localStorage.getItem('cart')) : []
     console.log('cartSendBtn', cart)
     postData(cart).then(() => {
-      localStorage.setItem('cart', JSON.stringify(cart))
+      localStorage.setItem('cart', JSON.stringify([]))
       renderCart([])
 
       cartTotal.textContent = 0
     })
-closeCart()
+    closeCart()
   })
 }
 

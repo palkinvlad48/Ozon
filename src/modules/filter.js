@@ -30,7 +30,7 @@ const filter = () => {
     }
 
     getData().then((data) => {
-      renderGoods(priceFilter(hotSaleFilter(data, checkboxInput.checked)))
+      renderGoods(priceFilter(hotSaleFilter(data, checkboxInput.checked), minInput.value, maxInput.value))
     })
   })
 

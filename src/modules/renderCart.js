@@ -11,12 +11,6 @@ const renderCart = (goods) => {
       `)
   } else {
     goods.forEach((goodsItem) => {
-      // let imgCurr = goodsItem.hoverImg
-
-      // if (!imgCurr) {
-      //   console.log('Нет рисунка')
-      // } //else { console.log(imgCurr) }
-
       cartWrapper.insertAdjacentHTML('beforeend', `
 			<div class="card" data-key="${goodsItem.id}">
         ${(goodsItem.sale) ? '<div class="card-sale">🔥Hot Sale🔥</div>' : ''}

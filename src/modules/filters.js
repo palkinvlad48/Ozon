@@ -29,7 +29,7 @@ export const priceFilter = (goods, min, max) => {
   })
 
 }
-
+// по акциям
 export const hotSaleFilter = (goods, value) => {
   return goods.filter((goodsItem) => {
     if (value) {
